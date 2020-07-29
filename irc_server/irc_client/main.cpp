@@ -2,7 +2,6 @@
 #include <WS2tcpip.h>
 #pragma comment (lib,"ws2_32.lib")
 
-
 using namespace std;
 int main() {
 	string ipAddress = "127.0.0.1";
@@ -27,7 +26,6 @@ int main() {
 	hint.sin_port = htons(port);
 	inet_pton(AF_INET, ipAddress.c_str(), &hint.sin_addr);
 	int connResult = connect(sock, (sockaddr*)&hint, sizeof(hint));
-	cout << "xxxxxxx" << endl;
 	if (connResult == SOCKET_ERROR)
 	{
 		cout << "Can't connect to server, Err #" << WSAGetLastError() << endl;
@@ -39,11 +37,7 @@ int main() {
 	else if (connResult == 0){
 		cout << "Not failed" << endl;
 	}
-
 	
-	
-	
-
 	system("pause");
 	return 0;
 }
